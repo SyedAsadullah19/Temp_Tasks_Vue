@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <center><h1>Todo in Vue Js</h1></center>
+    <div id="app">
+        <div class="container form-control">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control form-control-lg" placeholder="Enter Title" name="title" v-model="title">
+            <label for="description">Description</label>
+            <input type="text" class="form-control form-control-lg" placeholder="Enter Description" name="description" v-model="description">
+            <br>
+            <button class="btn btn-primary" v-on:click="add_todo()">Add +</button>
+            <br>
+            <br>
+        </div>
+        <br>
+        <center><h3>All Todos</h3></center>
+        <br>
+        <div class="container">
+            <ol v-for="todo in todo_que">
+                <br>
+                <div class="container card">
+                    <div class="card-body">
+                      <h5 class="card-title">{{todo.title}}</h5>
+                      <p class="card-text">{{todo.description}}</p>
+                      <a href="#" class="btn btn-secondary" v-on:click="update_todo()">Update</a>
+                      <a href="#" class="btn btn-danger" v-on:click="delete_todo(todo)">Delete</a>
+                    </div>
+                    <div v-bind:class="class1">
+                        <label for="updatetitle"></label>
+                        <input type="text" name="updatetitle" v-model="todo.title">
+                        <label for="updatedescription"></label>
+                        <input type="text" name="updatedescription" v-model="todo.description">
+                        <button class="btn btn-primary" v-on:click="save_todo()">Save ++</button>
+                    </div>
+                </div>
+            </ol>
+            <br>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
